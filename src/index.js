@@ -2,12 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import Headers from './Componets/Header/Index'
 import reportWebVitals from './reportWebVitals';
+import Input from './Componets/Input/Index'
+import List from './Componets/List/Index'
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <App >
+      <Headers/>
+      <Input/>
+      <List/>
+    </App>
   </React.StrictMode>
 );
 
