@@ -1,11 +1,15 @@
 import React from 'react'
 import Input from '../Input/Index'
-function Index(list) {
-console.log(list)
+import useStore from '../../UseStore/Index'
+function ListItem(){
+  // const listItem = useStore((state) => state.listItem);
+
+  // setInterval(()=>{console.log(listItem)},100)
+
   return (
    <ul>
      
    </ul>
   )}
 
-export default Index
+export default ListItem
