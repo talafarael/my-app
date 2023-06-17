@@ -1,9 +1,11 @@
 import React from 'react'
-
-function Index() {
+import Input from '../Input/Index'
+function Index(list) {
+console.log(list)
   return (
-    <div>Index</div>
-  )
-}
+   <ul>
+     
+   </ul>
+  )}
 
 export default Index
