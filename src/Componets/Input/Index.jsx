@@ -11,8 +11,8 @@ function Index() {
 
    const [list,setList]=React.useState(savedState ? JSON.parse(savedState):[])
    const[value ,setValue]=React.useState()
-   const listItem =list
-    console.log(list)
+
+   
     let arr={
     id:0,
     title:value,
@@ -23,7 +23,7 @@ function Index() {
       setValue(e.target.value) 
     } 
     function clickButton(){  setList([...list ,arr])
-      localStorage.setItem('myArrayState', JSON.stringify(list));
+    localStorage.setItem('myArrayState', JSON.stringify(list));
     setValue('')
    
     
