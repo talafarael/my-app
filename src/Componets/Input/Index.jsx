@@ -1,42 +1,40 @@
-import React, { useState } from 'react'
-import { useEffect } from 'react'
-// import { useState } from 'react'
-import { notes } from '../../common/notes'
-
-
+import React, { useState } from "react";
+import { useEffect } from "react";
+import useStore from "../../UseStore/Index";
+import { notes } from "../../common/notes";
 
 function Index() {
-  const savedState = localStorage.getItem('myArrayState');
+  const savedState = localStorage.getItem("myArrayState");
+  // const addItem = useStore((state) => state.addItem);
+  const [list, setList] = useState(savedState ? JSON.parse(savedState) : []);
+  const [value, setValue] = useState();
+  localStorage.setItem("myArrayState", JSON.stringify(list));
 
+  let arr = {
+    id: 0,
+    title: value,
+    notice: "",
+  };
 
-   const [list,setList]=React.useState(savedState ? JSON.parse(savedState):[])
-   const[value ,setValue]=React.useState()
-   localStorage.setItem('myArrayState', JSON.stringify(list));
-   
-    let arr={
-    id:0,
-    title:value,
-    notice:'',
+  const inputHandler = (e) => {
+    setValue(e.target.value);
+  };
+  function clickButton() {
+    setList([...list, arr]);
+    localStorage.setItem("myArrayState", JSON.stringify(list));
+    setValue("");
+
+    console.log(list);
   }
-   
-    const inputHandler = (e) => {
-      setValue(e.target.value) 
-    } 
-    function clickButton(){  setList([...list ,arr])
-    localStorage.setItem('myArrayState', JSON.stringify(list));
-    setValue('')
-      
-    
-    console.log(list)
-      
-    } return (
+      // addItem({item:arr})
+  return (
     <div>
-        <input value={value} onChange={inputHandler} />
-        <input/>
-        <button onClick={clickButton}>click</button>
-       <h1>{value }</h1>
+      <input value={value} onChange={inputHandler} />
+      <input />
+      <button onClick={clickButton}>click</button>
+      <h1>{value}</h1>
     </div>
-  )
+  );
 }
 
-export default Index 
+export default Index;
