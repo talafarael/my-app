@@ -1,11 +1,23 @@
 import create from 'zustand';
-
+const saved = localStorage.getItem("myArray");
 const useStore = create((set) => ({
-    listItem: '',
-   addItem:(item)=>(set((state)=>(
-   [ ...state.listItem,item]
+    listItem: saved ? JSON.parse(saved) : []
 
-   )))
+    ,
+ 
+   addItem:(item)=>(set(state=>(
+   ,
+    {   listItem:
+      [ ...state.listItem,
+        item]
+        
+      }
+     
+   
+  )))
+
+
+   
     
   }));
 
