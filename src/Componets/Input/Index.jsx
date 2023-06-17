@@ -5,7 +5,7 @@ import { notes } from "../../common/notes";
 
 function Index() {
   const savedState = localStorage.getItem("myArrayState");
-  // const addItem = useStore((state) => state.addItem);
+  const addItem = useStore((state) => state.addItem);
   const [list, setList] = useState(savedState ? JSON.parse(savedState) : []);
   const [value, setValue] = useState();
   localStorage.setItem("myArrayState", JSON.stringify(list));
@@ -23,10 +23,11 @@ function Index() {
     setList([...list, arr]);
     localStorage.setItem("myArrayState", JSON.stringify(list));
     setValue("");
-
+    addItem(arr)
     console.log(list);
   }
-      // addItem({item:arr})
+  
+     
   return (
     <div>
       <input value={value} onChange={inputHandler} />
