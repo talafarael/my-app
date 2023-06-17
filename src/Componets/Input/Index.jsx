@@ -9,8 +9,9 @@ function Index() {
   const savedState = localStorage.getItem('myArrayState');
 
 
-   const[list ,setList]=React.useState(savedState ? JSON.parse(savedState):[])
+   const [list,setList]=React.useState(savedState ? JSON.parse(savedState):[])
    const[value ,setValue]=React.useState()
+   const listItem =list
     console.log(list)
     let arr={
     id:0,
@@ -38,4 +39,4 @@ function Index() {
   )
 }
 
-export default Index
+export default Index 
