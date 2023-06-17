@@ -11,6 +11,7 @@ function App() {
     <div className="App">
     <Headers/>
     <Input/> 
+    <List/>
     </div>
   );
 }
