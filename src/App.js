@@ -1,7 +1,7 @@
 import Headers from './Componets/Header/Index'
 import Input from './Componets/Input/Index'
-import List from './Componets/List/Index'
 import './App.css';
+import ListItem from './Componets/List/Index';
 
 function App() {
 
@@ -11,7 +11,7 @@ function App() {
     <div className="App">
     <Headers/>
     <Input/> 
-    <List/>
+    <ListItem />
     </div>
   );
 }
