@@ -1,24 +1,29 @@
 import create from 'zustand';
-// const saved = localStorage.getItem("listItem")
-const useStore = create((set) => ({
-  listItem: '',
+const saved = localStorage.getItem("listItem")
+const useStore = create((set,get) => ({
+  listItem: saved ? JSON.parse(saved) : [] ,
     //  saved ? JSON.parse(saved) : []
    
- 
-   addItem:(item)=>(set(state=>(
+    closeItem:(id)=>{set(state=>( 
+    
+      {listItem : state.listItem.filter((g)=>g.id!==id)}),
+      localStorage.setItem("listItem",JSON.stringify(get().listItem))
+    ,
+    console.log(get().listItem)
+     )},
+    
+   addItem:(item)=>{set(st=>(
+   
+  
   
    {listItem:
-      [...state.listItem, item]
+      [...st.listItem, item]
         
-      },
-      localStorage.setItem("listItem",JSON.stringify(
-        
-        )   )))
-
-
-
+      }  
+      )),localStorage.setItem("listItem",JSON.stringify(get().listItem)   )
+    },
    
-   )})
+  })
   );
 
 export default useStore;
