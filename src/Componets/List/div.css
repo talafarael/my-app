@@ -1,0 +1,15 @@
+
+.main{
+    display: flex;
+
+height: 100vh;
+}
+.box{
+    
+    border-radius: 20px;
+    margin: 10px;
+    height: 200px;
+    width: 200px;
+    background: rgb(188, 188, 255.6);
+    text-align: center;
+}
