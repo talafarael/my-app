@@ -4,37 +4,40 @@ import useStore from "../../UseStore/Index";
 import { notes } from "../../common/notes";
 
 function Index() {
-  const savedState = localStorage.getItem("myArrayState");
+
   const addItem = useStore((state) => state.addItem);
-  const [list, setList] = useState(savedState ? JSON.parse(savedState) : []);
+ 
   const [value, setValue] = useState();
-  localStorage.setItem("myArrayState", JSON.stringify(list));
-  const saveItem = useStore((state) => state.saveItem);
+  const [value2, setValue2] = useState();
+  const [random, setrandom]=useState(Math.floor(Math.random()*10000))
   let arr = {
-    id: 0,
+    id: random,
     title: value,
-    notice: "",
+    notice: value2,
   };
 
   const inputHandler = (e) => {
     setValue(e.target.value);
   };
   function clickButton() {
-    setList([...list, arr]);
  
+   setrandom(Math.floor(Math.random()*10000))
     setValue("");
     addItem(arr)
-    
-    console.log(list);
+    setValue2("");
+ 
   }
+  const inputHandler2=(a)=>{
+    setValue2(a.target.value);
   
+  }
      
   return (
     <div>
       <input value={value} onChange={inputHandler} />
-      <input />
+      <input value={value2} onChange={inputHandler2} />
       <button onClick={clickButton}>click</button>
-      <h1>{value}</h1>
+     
     </div>
   );
 }
