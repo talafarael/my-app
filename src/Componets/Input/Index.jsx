@@ -9,7 +9,7 @@ function Index() {
   const [list, setList] = useState(savedState ? JSON.parse(savedState) : []);
   const [value, setValue] = useState();
   localStorage.setItem("myArrayState", JSON.stringify(list));
-
+  const saveItem = useStore((state) => state.saveItem);
   let arr = {
     id: 0,
     title: value,
@@ -21,9 +21,10 @@ function Index() {
   };
   function clickButton() {
     setList([...list, arr]);
-    localStorage.setItem("myArrayState", JSON.stringify(list));
+ 
     setValue("");
     addItem(arr)
+    
     console.log(list);
   }
   
