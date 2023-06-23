@@ -15,15 +15,29 @@ const useStore = create((set,get) => ({
    addItem:(item)=>{set(st=>(
    
   
-  
+
    {listItem:
-      [...st.listItem, item]
-        
-      }  
-      )),localStorage.setItem("listItem",JSON.stringify(get().listItem)   )
+      [...st.listItem, item]}) )
+      , localStorage.setItem("listItem",JSON.stringify(get().listItem)   )
+      
     },
-   
+    changeItem:(change,title)=>{set(  str=>
+    
+      {
+       const updatedItems = [...str.listItem];
+       updatedItems[change]=title
+       return { listItem: updatedItems };
+     
+    }
+     
+ 
+        
+    
+          
+       
+   ), localStorage.setItem("listItem",JSON.stringify(get().listItem)   )}
   })
+ 
   );
 
 export default useStore;
