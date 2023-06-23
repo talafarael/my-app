@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import useStore from "../../UseStore/Index";
 import { notes } from "../../common/notes";
-
+import './style.css'
 function Index() {
 
   const addItem = useStore((state) => state.addItem);
@@ -36,7 +36,7 @@ function Index() {
   }
  
   return (
-    <div>
+    <div className="inputbox">
       <input value={value} onChange={inputHandler} />
       <input value={value2} onChange={inputHandler2} />
       <button onClick={clickButton}>click</button>
