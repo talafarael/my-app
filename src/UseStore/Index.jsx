@@ -35,7 +35,18 @@ const useStore = create((set,get) => ({
     
           
        
-   ), localStorage.setItem("listItem",JSON.stringify(get().listItem)   )}
+   ), localStorage.setItem("listItem",JSON.stringify(get().listItem)   )},
+
+
+   changechexItem:(id,box)=>{set(  str=>{ const updatedItems = [...str.listItem];
+    updatedItems[id].inpurstate=!updatedItems[id].inpurstate
+    return { listItem: updatedItems };
+  }), localStorage.setItem("listItem",JSON.stringify(get().listItem)   )}
+    
+    
+
+
+
   })
  
   );
