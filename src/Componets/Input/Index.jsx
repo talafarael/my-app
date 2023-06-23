@@ -14,7 +14,7 @@ function Index() {
     id: random,
     title: value,
     notice: value2,
-    // inpurstate:true,
+    inpurstate:false,
   };
 
 
