@@ -7,14 +7,17 @@ function Index() {
 
   const addItem = useStore((state) => state.addItem);
  
-  const [value, setValue] = useState();
-  const [value2, setValue2] = useState();
+  const [value, setValue] = useState('');
+  const [value2, setValue2] = useState('');
   const [random, setrandom]=useState(Math.floor(Math.random()*10000))
   let arr = {
     id: random,
     title: value,
     notice: value2,
+    // inpurstate:true,
   };
+
+
 
   const inputHandler = (e) => {
     setValue(e.target.value);
@@ -31,7 +34,7 @@ function Index() {
     setValue2(a.target.value);
   
   }
-     
+ 
   return (
     <div>
       <input value={value} onChange={inputHandler} />
