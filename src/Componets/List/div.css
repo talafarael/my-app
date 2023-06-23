@@ -13,3 +13,19 @@ height: 100vh;
     background: rgb(188, 188, 255.6);
     text-align: center;
 }
+.changeoff{
+    left: 600px;
+    position: absolute;
+    height: 0px;
+    width: 0px;
+    background: red;
+    opacity: 0;
+}
+.changeon{
+    left: 600px;
+    position: absolute;
+    height:400px;
+    width: 400px;
+    background: red;
+    opacity: 1;
+}
