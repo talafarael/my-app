@@ -2,21 +2,57 @@ import React from 'react'
 import Input from '../Input/Index'
 import useStore from '../../UseStore/Index'
 import './div.css'
+import { useState } from 'react'
 function ListItem(){
-   const closeItem = useStore((state) => state.closeItem);
+  const[activ,setactive]=useState('changeoff')
+  const closeItem = useStore((state) => state.closeItem);
   const listItem = useStore(state =>state.listItem);
- 
+  const[val1,setval1]=useState('')
+  const[id1,setid1]=useState('')
+  const[val2,setval2]=useState('')
+  const changeItem = useStore((state) => state.changeItem);
   console.log(listItem)
   function closeWindow(h){
     closeItem(closeItem(h) )
   }
+   function addclas(e){
+    setactive('changeon')
+    const arr=listItem.filter((item)=>item.id==e) 
+    setval1(arr[0].title)
+    setval2(arr[0].notice)
+    setid1(arr[0].id)
+ 
+   }
+   const changeunput1=(a)=>{
+    setval1(a.target.value);
+  }
+  const changeunput2=(a)=>{
+    setval2(a.target.value);
+  }
+  let arry = {
+    id:id1 ,
+    title: val1 ,
+    notice: val2 ,
+  };
+function cahngeButton(){
+  const arr=listItem.findIndex(arr=> arr.id==id1)
+    changeItem(arr,arry )
+    setactive('changeoff')
+  }
   return (
    <div className='main'>
+    <div className={activ}>
+      <input type="text" value={val1} onChange={changeunput1}/>
+      <input type="text" value={val2} onChange={changeunput2}/>
+      <button onClick={cahngeButton}>change</button>
+      </div>
      {listItem.map((item)=>
      <div className='box' key={item.id}>
-      <h1>{item.id }</h1>
+      <h1>{item.title }</h1>
       <p>{item.notice}</p>
-      <button key={item.id} onClick={()=>closeWindow(item.id)}>close</button>
+      <button onClick={()=>addclas(item.id)}></button>
+      {/* <input type="checkbox" checked={item.inpurstate}/> */}
+      <button  onClick={()=>closeWindow(item.id)}>close</button>
      </div>)}
    </div>
   )}
