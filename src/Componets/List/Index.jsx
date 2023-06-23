@@ -7,6 +7,7 @@ function ListItem(){
   const[activ,setactive]=useState('changeoff')
   const closeItem = useStore((state) => state.closeItem);
   const listItem = useStore(state =>state.listItem);
+  const changechexItem = useStore((state) => state.changechexItem);
   const[val1,setval1]=useState('')
   const[id1,setid1]=useState('')
   const[val2,setval2]=useState('')
@@ -39,6 +40,10 @@ function cahngeButton(){
     changeItem(arr,arry )
     setactive('changeoff')
   }
+  function handleCheckboxChange(h){
+    const arr=listItem.findIndex(arr=> arr.id==h)
+    changechexItem(arr)
+  }
   return (
    <div className='main'>
     <div className={activ}>
@@ -47,11 +52,12 @@ function cahngeButton(){
       <button onClick={cahngeButton}>change</button>
       </div>
      {listItem.map((item)=>
+    
      <div className='box' key={item.id}>
-      <h1>{item.title }</h1>
-      <p>{item.notice}</p>
+      <h1 style={item.inpurstate ? { color: 'red', textDecoration: 'line-through', } : {}}>{item.title }</h1>
+      <p style={item.inpurstate ? { color: 'red', textDecoration: 'line-through', } : {}}>{item.notice}</p>
       <button onClick={()=>addclas(item.id)}></button>
-      {/* <input type="checkbox" checked={item.inpurstate}/> */}
+      <input type="checkbox" checked={item.inpurstate} onChange={()=>handleCheckboxChange(item.id)}/>
       <button  onClick={()=>closeWindow(item.id)}>close</button>
      </div>)}
    </div>
