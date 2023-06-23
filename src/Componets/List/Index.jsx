@@ -55,7 +55,7 @@ function cahngeButton(){
     
      <div className='box' key={item.id}>
       <h1 style={item.inpurstate ? { color: 'red', textDecoration: 'line-through', } : {}}>{item.title }</h1>
-      <p style={item.inpurstate ? { color: 'red', textDecoration: 'line-through', } : {}}>{item.notice}</p>
+      <p style={item.inpurstate ? { color: 'red', textDecoration: 'line-through', } : {}} >{item.notice}</p>
       <button onClick={()=>addclas(item.id)}></button>
       <input type="checkbox" checked={item.inpurstate} onChange={()=>handleCheckboxChange(item.id)}/>
       <button  onClick={()=>closeWindow(item.id)}>close</button>
